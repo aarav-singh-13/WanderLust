@@ -1,13 +1,15 @@
-const express = require("express");
-const app = express();
-const port = 8080;
-const path = require("path");
-const methodOverride = require('method-override');
-const engine = require('ejs-mate');
-const wrapasync = require("./utils/wrapasync.js");
-const mongoose = require("mongoose");
-const Listing = require ("./model/listing.js");
+import express from "express";
+import path from "path";
+import methodOverride from "method-override";
+import engine from "ejs-mate";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
+
+import wrapasync from "./utils/wrapasync.js";
+import Listing from "./model/listing.js";
+
+const app = express();
+const port = process.env.PORT || 8080;
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -34,7 +36,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.log(err));
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
 
 
