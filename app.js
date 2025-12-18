@@ -49,6 +49,8 @@ app.listen(PORT, () => console.log(`Server running on ${PORT}`));
 app.get("/listings", async (req,res)=>{
 
     let all_data = await Listing.find({});
+    console.log(all_data);
+    console.log(1);
     res.render("listings/index.ejs", {all_data});
 });
 
