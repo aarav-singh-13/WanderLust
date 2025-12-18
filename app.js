@@ -45,6 +45,9 @@ mongoose.connect(process.env.MONGO_URI)
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server running on ${PORT}`));
 
+app.get("/", (req, res)=>{
+    res.redirect("/listings");
+});
 
 app.get("/listings", async (req,res)=>{
 
