@@ -4,12 +4,18 @@ import methodOverride from "method-override";
 import engine from "ejs-mate";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
 
 import wrapasync from "./utils/wrapasync.js";
 import Listing from "./model/listing.js";
 
 const app = express();
 const port = process.env.PORT || 8080;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -18,12 +24,12 @@ app.use(methodOverride('_method'));
 app.engine('ejs', engine);
 app.use(express.static(path.join(__dirname, "/public")));
 
-main().then(()=>{
-    console.log("connected");
-})
-.catch((er)=>{
-    console.log(er);
-})
+// main().then(()=>{
+//     console.log("connected");
+// })
+// .catch((er)=>{
+//     console.log(er);
+// })
 
 // async function main() {
 //   await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
