@@ -7,6 +7,7 @@ const engine = require('ejs-mate');
 const wrapasync = require("./utils/wrapasync.js");
 const mongoose = require("mongoose");
 const Listing = require ("./model/listing.js");
+import dotenv from "dotenv";
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -22,9 +23,20 @@ main().then(()=>{
     console.log(er);
 })
 
-async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
-}
+// async function main() {
+//   await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
+// }
+
+dotenv.config();
+
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB connected"))
+  .catch(err => console.log(err));
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
+
 
 app.get("/listings", async (req,res)=>{
 
