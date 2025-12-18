@@ -96,9 +96,10 @@ app.post("/listings", async (req, res)=>{
     res.redirect("/listings");
 })
 
-app.use((req, res, err, next)=>{
-    res.send("wrong!");
-})
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send("Internal Server Error");
+});
 
 app.listen(port, ()=>{
     console.log("listening");
