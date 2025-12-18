@@ -1,0 +1,58 @@
+<% layout("/layout/boilerplate") %>
+<body>
+    <h3>Create a New Listing</h3>
+    <br>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <form action="/listings" method="post" novalidate class="needs-validation">
+        <div>
+        <label for="title" class="form-label"> Title </label>
+        <input class="form-control" name="listing[title]" type="text" placeholder="Enter title" required> 
+    <div class="invalid-feedback">
+      Please provide a valid title.
+    </div>    
+    </div>
+        <div>
+        <label for="description" class="form-label"> description </label>
+        <textarea class="form-control" name="listing[description]" placeholder="Enter description" required></textarea>
+        <div class="invalid-feedback">
+      Please enter a message in the textarea.
+    </div> 
+        </div>
+        <div>
+        <label for="image" class="form-label"> Image </label>
+        <input class="form-control" name="listing[image]" type="text" placeholder="Enter image link">      
+        </div>
+        
+            <div class="row">
+                <div class="col-md-4">
+                <label for="price" class="form-label"> Price </label>
+                <input class="form-control"name="listing[price]" type="text" pattern="[0-9]*" placeholder="Enter price" required> 
+                    <div class="invalid-feedback">
+      Please provide a valid price.
+    </div>
+            </div>
+                 <div class="col-md-8">
+        <label for="country" class="form-label">Country</label>
+        <input class="form-control" name="listing[country]" type="text" placeholder="Enter country" required> 
+        <div class="invalid-feedback">
+      Please provide a valid country.
+    </div>
+        </div>
+            </div>
+        
+        <div>
+        <label for="location" class="form-label"> Location </label>
+        <input class="form-control" name="listing[location]" type="text" placeholder="Enter location" required> 
+        <div class="invalid-feedback">
+      Please provide a valid location.
+    </div>
+    </div>
+       
+        <br>
+        <button>submit</button>
+    </form>
+        </div>
+    </div>
+    
+</body>

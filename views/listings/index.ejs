@@ -1,0 +1,31 @@
+<% layout("/layout/boilerplate") %>
+<body>
+
+  <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2">
+    <% for (data of all_data) { %>
+      <div class="col">
+        <a href="/listings/<%=data.id%>">
+        <div class="card" >
+          <img src="<%= data.image %>" class="card-img-top" alt="..." style="height: 20rem;">
+           <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <h5 class="card-title"><%= data.title %></h5>
+            <p class="card-text">
+              <%= data.price %> /night
+            </p>
+            <!-- a href="/listings/<%=data.id%>" class="btn btn-primary">More info</a> -->
+          </div>
+        </div>
+        </a>
+      </div>
+    <% } %>
+  </div>
+
+  <!-- 
+  <ul>
+    <% for (data of all_data) { %>
+      <li><a href="http://localhost:8080/listings/<%= data.id %>"><%= data.title %></a></li>
+    <% } %>
+  </ul>
+  -->
+</body>

@@ -1,0 +1,36 @@
+<% layout("/layout/boilerplate") %>
+<body class="bg-light">
+
+  <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="card shadow-lg border-0" style="width: 28rem; border-radius: 15px; overflow: hidden;">
+      
+      <!-- Listing Image -->
+      <img src="<%= data.image %>" class="card-img-top" alt="<%= data.title %>" 
+           style="height: 220px; object-fit: cover;">
+
+      <!-- Card Body -->
+      <div class="card-body text-center p-4">
+        <h4 class="card-title mb-2"><%= data.title %></h4>
+        <p class="text-muted mb-1"><%= data.location %>, <%= data.country %></p>
+        <p class="card-text small mb-3"><%= data.description %></p>
+        <h5 class="fw-bold text-success mb-4"><%= data.price %> / night</h5>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-center gap-3">
+          <a href="/listings/<%= data.id %>/edit" class="btn btn-warning px-4">Edit</a>
+          <a href="/listings/<%= data.id %>/delete" class="btn btn-danger px-4">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .card {
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+  </style>
+
+</body>

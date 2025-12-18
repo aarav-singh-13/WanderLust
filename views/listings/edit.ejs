@@ -1,0 +1,54 @@
+<% layout("/layout/boilerplate") %>
+<body>
+<h3 style="text-align: center;">Edit This Listing</h3> <br>
+<div class="row">
+  <div class="col-8 offset-2">
+    <form action="/listings/<%= data._id %>?_method=PUT" method="POST">
+      
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="data[title]" type="text" class="form-control" value="<%= data.title %>">
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="data[description]" class="form-control" rows="3"><%= data.description %></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input name="data[image]" type="text" class="form-control" value="<%= data.image %>">
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input name="data[price]" type="number" class="form-control" value="<%= data.price %>">
+        </div>
+        <div class="col-md-8">
+          <label for="country" class="form-label">Country</label>
+          <input name="data[country]" type="text" class="form-control" value="<%= data.country %>">
+        </div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="location" class="form-label">Location</label>
+        <input name="data[location]" type="text" class="form-control" value="<%= data.location %>">
+      </div>
+
+      <button class="btn btn-primary">Edit</button>
+    </form>
+  </div>
+</div>
+
+<!-- 
+    <form action="/listings/<%=data._id%>?_method=PUT" method="POST">
+        <input name="data[title]" type="text" value="<%=data.title%>"> <br>
+        <textarea name="data[description]" value="<%=data.description%>"> </textarea> <br>
+        <input name="data[image]" type="text" value="<%=data.image%>"> <br>
+        <input name="data[price]" type="number" value="<%=data.price%>"> <br>
+        <input name="data[location]" type="text" value="<%=data.location%>"> <br>
+        <input name="data[country]" type="text" value="<%=data.country%>"> <br>
+        <button>Edit</button>
+    </form> -->
+</body>
